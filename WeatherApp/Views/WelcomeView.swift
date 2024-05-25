@@ -25,7 +25,6 @@ struct WelcomeView: View {
             .padding()
             
             
-            // LocationButton from CoreLocationUI framework imported above, allows us to requestionLocation
             LocationButton(.shareCurrentLocation) {
                 locationManager.requestLocation()
             }
