@@ -23,7 +23,6 @@ struct LocationListView: View {
                 ForEach(items) { item in
                     NavigationLink {
                         VStack {
-                            Text("Criado em: \(item.timestamp!, formatter: itemFormatter)")
                             Text("Nome: \(item.name!)")
                             Text("Latitude: \(item.latitude)")
                             Text("Longitude: \(item.longitude)")
