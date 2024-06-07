@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1876E4DB2C13C7C000913A8C /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1876E4DA2C13C7C000913A8C /* Persistence.swift */; };
+		1876E4DE2C13C7F000913A8C /* WheaterAppDB.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1876E4DC2C13C7F000913A8C /* WheaterAppDB.xcdatamodeld */; };
+		1876E4E02C13C8B900913A8C /* LocationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1876E4DF2C13C8B900913A8C /* LocationListView.swift */; };
 		89478AE52C00FB990058D0A1 /* WeatherAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89478AE42C00FB990058D0A1 /* WeatherAppApp.swift */; };
 		89478AE72C00FB990058D0A1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89478AE62C00FB990058D0A1 /* ContentView.swift */; };
 		89478AE92C00FB990058D0A1 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89478AE82C00FB990058D0A1 /* Item.swift */; };
@@ -44,6 +47,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1876E4DA2C13C7C000913A8C /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		1876E4DD2C13C7F000913A8C /* WheaterAppDB.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WheaterAppDB.xcdatamodel; sourceTree = "<group>"; };
+		1876E4DF2C13C8B900913A8C /* LocationListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListView.swift; sourceTree = "<group>"; };
 		89478AE12C00FB990058D0A1 /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89478AE42C00FB990058D0A1 /* WeatherAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAppApp.swift; sourceTree = "<group>"; };
 		89478AE62C00FB990058D0A1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -91,6 +97,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1876E4D92C13C7B800913A8C /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				1876E4DA2C13C7C000913A8C /* Persistence.swift */,
+				1876E4DC2C13C7F000913A8C /* WheaterAppDB.xcdatamodeld */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
 		89478AD82C00FB990058D0A1 = {
 			isa = PBXGroup;
 			children = (
@@ -114,6 +129,7 @@
 		89478AE32C00FB990058D0A1 /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				1876E4D92C13C7B800913A8C /* Database */,
 				8958D2902C01298800A9EB73 /* Components */,
 				8958D2812C01218300A9EB73 /* Views */,
 				8958D27E2C0120C800A9EB73 /* Managers */,
@@ -169,6 +185,7 @@
 				8958D2822C0121EC00A9EB73 /* WelcomeView.swift */,
 				8958D2842C01225900A9EB73 /* WeatherView.swift */,
 				8958D2862C0122A100A9EB73 /* LoadingView.swift */,
+				1876E4DF2C13C8B900913A8C /* LocationListView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -321,8 +338,11 @@
 				8958D28F2C01288B00A9EB73 /* Extensions.swift in Sources */,
 				8958D2852C01225900A9EB73 /* WeatherView.swift in Sources */,
 				89478AE92C00FB990058D0A1 /* Item.swift in Sources */,
+				1876E4DB2C13C7C000913A8C /* Persistence.swift in Sources */,
 				8958D2872C0122A100A9EB73 /* LoadingView.swift in Sources */,
+				1876E4E02C13C8B900913A8C /* LocationListView.swift in Sources */,
 				89478AE52C00FB990058D0A1 /* WeatherAppApp.swift in Sources */,
+				1876E4DE2C13C7F000913A8C /* WheaterAppDB.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -646,6 +666,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		1876E4DC2C13C7F000913A8C /* WheaterAppDB.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				1876E4DD2C13C7F000913A8C /* WheaterAppDB.xcdatamodel */,
+			);
+			currentVersion = 1876E4DD2C13C7F000913A8C /* WheaterAppDB.xcdatamodel */;
+			name = WheaterAppDB.xcdatamodeld;
+			path = /Users/bressam/Desktop/WeatherApp/WeatherApp/Database/WheaterAppDB.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 89478AD92C00FB990058D0A1 /* Project object */;
 }

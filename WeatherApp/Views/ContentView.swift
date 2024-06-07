@@ -12,12 +12,16 @@ struct ContentView: View {
     @StateObject var locationManager = LocationManager()
     var weatherManager = WeatherManager()
     @State var weather: ResponseBody?
-    
+    let viewDBContext = PersistenceController.shared.container.viewContext
+
     var body: some View {
         VStack {
             if let location = locationManager.location {
                 if let weather = weather {
                     WeatherView(weather: weather)
+                        .onAppear(perform: {
+                            saveLocation(weather: weather)
+                        })
                 } else {
                     LoadingView()
                         .task {
@@ -39,6 +43,16 @@ struct ContentView: View {
         }
         .background(Color(hue: 0.656, saturation: 0.787, brightness: 0.354))
         .preferredColorScheme(.dark)
+    }
+    
+    func saveLocation(weather: ResponseBody) {
+        // Salva no banco
+        let newLocation = Location(context: viewDBContext)
+        newLocation.timestamp = Date()
+        newLocation.name = weather.name
+        newLocation.latitude = weather.coord.lat
+        newLocation.longitude = weather.coord.lon
+        try? viewDBContext.save()
     }
 }
 
