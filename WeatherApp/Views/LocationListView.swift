@@ -9,8 +9,8 @@ import SwiftUI
 import CoreData
 
 struct LocationListView: View {
-//    @Environment(\.managedObjectContext) private var viewContext
-    let viewContext = PersistenceController.shared.container.viewContext
+    @Environment(\.managedObjectContext) private var viewContext
+//    let viewContext = PersistenceController.shared.container.viewContext
     
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Location.timestamp, ascending: true)],
@@ -34,18 +34,9 @@ struct LocationListView: View {
                 }
                 .onDelete(perform: deleteItems)
             }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
-                    }
-                }
-            }
             Text("Select an item")
-        }
+        }.background(Color(hue: 0.656, saturation: 0.787, brightness: 0.354))
+            .preferredColorScheme(.dark)
     }
     
     private func addItem() {

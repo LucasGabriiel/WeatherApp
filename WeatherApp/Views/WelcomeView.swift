@@ -10,7 +10,8 @@ import CoreLocationUI
 
 struct WelcomeView: View {
     @EnvironmentObject var locationManager: LocationManager
-    
+    @State private var showingSheet = false
+    @Environment(\.managedObjectContext) private var viewContext
     var body: some View {
         VStack {
             VStack(spacing: 20) {
@@ -25,14 +26,33 @@ struct WelcomeView: View {
             .padding()
             
             
-            LocationButton(.shareCurrentLocation) {
-                locationManager.requestLocation()
-            }
-            .cornerRadius(30)
-            .symbolVariant(.fill)
+            VStack {
+                LocationButton(.shareCurrentLocation) {
+                    locationManager.requestLocation()
+                }
+                .cornerRadius(30)
+                .symbolVariant(.fill)
             .foregroundColor(.white)
+            
+            Button(action: historyButtonTapped, label: {
+                HStack{
+                    Image(systemName: "list.bullet.rectangle.portrait.fill")
+                    Text("Location History")
+                        .font(.headline)
+                }
+            }).buttonStyle(.borderedProminent)
+                .buttonBorderShape(.capsule)
+                .sheet(isPresented: $showingSheet) {
+                    LocationListView() .environment(\.managedObjectContext, viewContext)
+                }
+                
+            }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+    }
+    
+    func historyButtonTapped()  {
+        showingSheet.toggle()
     }
 }
 

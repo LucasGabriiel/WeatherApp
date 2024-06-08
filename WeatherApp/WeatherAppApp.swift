@@ -27,6 +27,7 @@ struct WeatherAppApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environment(\.managedObjectContext, persistenceController.container.viewContext)
 //            LocationListView()
 //                .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }

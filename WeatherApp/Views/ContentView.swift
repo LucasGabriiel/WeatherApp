@@ -13,6 +13,7 @@ struct ContentView: View {
     var weatherManager = WeatherManager()
     @State var weather: ResponseBody?
     let viewDBContext = PersistenceController.shared.container.viewContext
+    @Environment(\.managedObjectContext) private var viewContext
 
     var body: some View {
         VStack {
@@ -38,6 +39,7 @@ struct ContentView: View {
                 } else {
                     WelcomeView()
                         .environmentObject(locationManager)
+                        .environment(\.managedObjectContext, viewContext)
                 }
             }
         }
